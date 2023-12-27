@@ -1,0 +1,6 @@
+ ______ _______ _______ 
+|   __ \    ___|    ___|
+|   __ <    ___|    ___|
+|______/___|   |_______|
+${application.title} ${application.version}
+Spring Boot ${spring-boot.version}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" debug="false">
+
+	<shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+<!--
+	<springProfile name="dev">
+		<appender name="LOGGER-ALL" class="com.ar.sgt.cash.logback.CompositeAppender">
+			<appender-ref ref="CONSOLE"/>
+		</appender>		  
+	</springProfile>
+-->	
+	<logger name="com.hsbc.hbar" level="debug"/>
+
+	<logger name="org.springframework.web"	level="debug" additivity="false">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<root level="warn">
+		<appender-ref ref="CONSOLE" />
+	</root>
+		
+</configuration>
