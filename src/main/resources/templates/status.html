@@ -1,0 +1,43 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>BFE Broker Service</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="refresh" content="60" >
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+		integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<style>
+		body {
+  			background-color: #e5e7e9;
+		}	
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<table class="table mt-4">
+			<tr>
+				<th>Subscribed clients</th>
+				<td>[[${clients}]]</td>
+			</tr>
+			<tr>
+				<th>Processed requests</th>
+				<td>[[${requests}]]</td>
+			</tr>
+			<tr>
+				<th>Running since</th>
+				<td>[[${running}]] ago</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+
+</html>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hsbc.hbar.teller.broker.StatsHolder;
 import com.hsbc.hbar.teller.broker.web.api.UserActionAuthorization;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,9 @@ public class ActionAuthorizationController {
     @Autowired
     private SimpMessagingTemplate messageSender;
     
+	@Autowired
+	private StatsHolder stats;
+	
 	@PostMapping("confirm")
 	public ResponseEntity<Void> authorizeAction(@Valid @RequestBody UserActionAuthorization payload, BindingResult bindingResult) {
 		log.debug("AuthorizeAction received payload {}", payload);
@@ -38,6 +42,8 @@ public class ActionAuthorizationController {
 
 		log.debug("Broadcast to {}", topicPrefix);
 		messageSender.convertAndSend(topicPrefix, payload);
+		
+		stats.addProcessedRequests();
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
