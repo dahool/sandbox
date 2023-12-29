@@ -19,6 +19,20 @@
 		<log4j2.version>2.22.0</log4j2.version>
 	</properties>
 
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.hsbc.hbar.teller.broker.Application</mainClass>
+					<layout>JAR</layout>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
